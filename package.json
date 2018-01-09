@@ -1,0 +1,24 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "Simple e-commerce website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratnani1996/e-commerce.git"
+  },
+  "author": "Himanshu Ratnani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratnani1996/e-commerce/issues"
+  },
+  "homepage": "https://github.com/ratnani1996/e-commerce#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
