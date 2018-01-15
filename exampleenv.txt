@@ -1,2 +1,3 @@
+create a file with the name variables.env and add the content mention below
 MONGO_URL = 
 PORT = 
