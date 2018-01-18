@@ -2,7 +2,7 @@ import { mongo, SchemaTypes, Schema } from 'mongoose';
 
 const mongoose = require('mongoose')
 
-const ProductModel = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     vendorProductID: {
         type: String,
         required: true
@@ -32,19 +32,19 @@ const ProductModel = new mongoose.Schema({
         required: true
     },
     QuantityPerUnit: {
-        type: String,
+        type: Number,
         required: true
     },
     discountAvailable: {
-        type: String,
+        type: Number,
         required: true
-    }
+    },
     picture: {
         type: String,
         required: true
     }
 });
 
-const ProductModel = mongoose.model('products', ProductModel);
+const ProductModel = mongoose.model('products', ProductSchema);
 
 module.exports = { ProductModel };
