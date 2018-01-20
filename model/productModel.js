@@ -1,8 +1,10 @@
-import { mongo, SchemaTypes, Schema } from 'mongoose';
-
 const mongoose = require('mongoose')
 
-const ProductSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
+    productID: {
+        type: String,
+        required: true
+    },
     vendorProductID: {
         type: String,
         required: true
@@ -12,24 +14,35 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     categoryID: {
-        type: String,
-        required: true
+        // type:,
+        // ref:
     },
     productDescription: {
         type: String,
         required: true
     },
+    productAvailable:{
+      type:String,
+      required:true
+    },
+    supplierId:{
+      type:String,
+      required:true
+    },
     msrp: {
-        type: String,
+        type: Number,
         required: true
     },
     availableSizes: {
         type: String,
         required: true
     },
+    sizes:{
+        type:Array,
+        required:true
+    },
     availableColor: {
-        type: String,
-        required: true
+        type: Array
     },
     QuantityPerUnit: {
         type: Number,
@@ -37,7 +50,11 @@ const ProductSchema = new mongoose.Schema({
     },
     discountAvailable: {
         type: Number,
-        required: true
+        default:0
+    },
+    unitsInStock:{
+      type:Number,
+      required:true
     },
     picture: {
         type: String,
@@ -45,6 +62,6 @@ const ProductSchema = new mongoose.Schema({
     }
 });
 
-const ProductModel = mongoose.model('products', ProductSchema);
+const productModel = mongoose.model('products', productSchema);
 
-module.exports = { ProductModel };
+module.exports = { productModel };
