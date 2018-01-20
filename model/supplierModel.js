@@ -1,54 +1,66 @@
-import { mongo, SchemaTypes, Schema } from 'mongoose';
-
 const mongoose = require('mongoose')
+const validator = require('validator')
+const {customerModel} = require('./customerModel')
+
+const addressSchema = new mongoose.Schema({
+    Address_1 :{
+        type : String
+    },
+    City : {
+        type : String
+    },
+    State : {
+        type : String
+    },
+    Country : {
+        type : String
+    },
+    PostalCode : {
+        type : Number
+    }
+})
+
 
 const supplierSchema = new mongoose.Schema({
     CompanyName : {
         type : String,
         required : true
     },
-    displayName : {
+    FirstName : {
         type : String,
         required : true
     },
-    Address_1 : {
-        type :String,
-        required : true
+    MiddleName : {
+        type : String
     },
-    Address_2 : {
-        type : String,
-        required : true
+    LastName : {
+        type : String
     },
-    City : {
-        type : String,
-        required : true
-    },
-    postalCode : {
-        type : String,
-        required : true
-    },
-    Country : {
-        type : String,
-        required : true
-    },
-    Phone : {
-        type : String,
-        required : true
-    },
-    Fax : {
-        type : String,
-        default : null
-    },
+    Address_1 : addressSchema,
     Email : {
         type : String,
-        required : true
+        required : true,
+        unique : true,
+        validate : {
+            validator : function(v){
+                return validator.isEmail(v);
+            },
+            message : '{VALUE} is not a valid email'
+        }
+
     },
-    customerId : {
-        type : Schema.Types.ObjectId
-        // ref : 
-    }
+    Password : {
+        type : String,
+        required : true,
+        minlength : 6
+    },
+    //not sure of this order id
+    orderID : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Orders'
+    }]
 })
 
-var SupplierModel = mongoose.model('suppliers', supplierSchema);
+var SupplierModel = mongoose.model('Suppliers', supplierSchema);
 
 module.exports = {SupplierModel};
