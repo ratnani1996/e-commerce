@@ -69,3 +69,9 @@
     border: 2px solid #3F0C1F;
 }
 
+#strike{
+    color: red;
+    margin-left: 5px; 
+    overflow: hidden;
+}
+

@@ -4,13 +4,6 @@
     <meta charset="UTF-8">
     <title>E-commerce</title>
     <script src="angular.min.js"></script>
-<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
--->
 
 <link rel="stylesheet" href="css/menuStyle.css">
 <link rel="stylesheet" href="css/trending.css">
@@ -48,6 +41,7 @@ jQuery(document).ready(function() {
         
 });
 </script>
+<!--
 <style>
 .carousel-control.left, .carousel-control.right {
 	background-image:none;
@@ -112,7 +106,7 @@ jQuery(document).ready(function() {
 		display:block;
 	}
 }
-</style>
+</style> -->
 
 </head>
 
@@ -166,16 +160,23 @@ jQuery(document).ready(function() {
            
         </nav>
         
-	</header> 
+    
+	</header>
+
    
 <!--    ---------------------------carousel---------------------------------------- -->
-      <section id="section">
+       
+         <section id="section">
    <div id="carosel" ng-controller="featureController">
         	<div id="slider" ng-repeat="feature in featureData | filter: {'status':'y'}">
             <img ng-src="{{feature.url}}" alt="image">
         	</div>
+        	<div class="btns">
+             <button id="leftbtn"><i class="fa fa-angle-left"></i></button>
+             <button id="rightbtn"><i class="fa fa-angle-right"></i></button> 
+            </div>      
    </div>
-</section> <br> <br>
+</section>
 <!--
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -204,7 +205,7 @@ jQuery(document).ready(function() {
   </a>
 </div> <br> <br>
 -->
- <hr style="height:1px;color:#333;background-color:#333;" /> <br><br>
+ <hr style="height:1px;color:#333;background-color:#333;" />
   
 <!--    -----------------------Trending-------------------------------------------- -->
     <div align="center">
@@ -259,28 +260,10 @@ jQuery(document).ready(function() {
                 <h3 class="module-header h2"> PRODUCTS</h3>
             </div> <br>
      <ul><div class="divAlign">
-         <img src="Assets/Images/item5.jpeg" style="height: 10%; width: 15%; margin-left: 2% " class="trendImage">
-         <img src="Assets/Images/item6.jpeg" style="height: 10%; width: 15%; margin: 5%;" class="trendImage">
-         <img src="Assets/Images/item4.jpeg" style="height: 10%; width: 15%;margin-right: 5%; " class="trendImage">
-         <img src="Assets/Images/item3.jpeg" style="height: 1%; width: 8%; " class="trendImage"> <br>
-         <div class="row">
-                <section id="hours" class="col-sm-4">
-                    <span>9999</span>
-                    <hr class="visible-xs">
-                </section>
-                <section id="address" class="col-sm-4">
-                    <span>8999</span>
-                    <hr class="visible-xs">
-                </section>
-                <section id="testimonials" class="col-sm-4">
-                    <p>1000 </p>
-                    <hr class="visible-xs">
-                </section>
-                <section id="testimonial" class="col-sm-4">
-                    <p>7000 </p>
-                    <hr class="visible-xs">
-                </section>
-            </div>
+         <img src="Assets/Images/item5.jpeg" style="height: 10%; width: 15%; margin-left: 2% " class="trendImage">9999 <s id="strike">10099</s>
+         <img src="Assets/Images/item6.jpeg" style="height: 10%; width: 15%; margin: 5%;" class="trendImage">16589 <s id="strike">17999</s>
+         <img src="Assets/Images/item4.jpeg" style="height: 10%; width: 15%;margin-right: 5%; " class="trendImage">13399 <s id="strike">16699</s>
+         <img src="Assets/Images/item3.jpeg" style="height: 1%; width: 8%; " class="trendImage"> 10999  <s id="strike">12999</s> <br>
      </div> 
      </ul> <br>
      <hr style="height:1px;color:#333;background-color:#333;" /> <br>
