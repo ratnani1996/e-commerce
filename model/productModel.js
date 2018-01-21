@@ -6,16 +6,16 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     categoryID: {
-        // type:,
-        // ref:
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Categories'
     },
     productDescription: {
         type: String,
         required: true
     },
     productAvailable:{
-      type:String,
-      required:true
+      type: Boolean,
+      required: true
     },
     supplierId:{
         type : mongoose.Schema.Types.ObjectId,
@@ -55,6 +55,6 @@ const productSchema = new mongoose.Schema({
     }
 });
 
-const productModel = mongoose.model('products', productSchema);
+const productModel = mongoose.model('Products', productSchema);
 
 module.exports = { productModel };
