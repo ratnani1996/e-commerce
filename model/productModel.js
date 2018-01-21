@@ -17,10 +17,10 @@ const productSchema = new mongoose.Schema({
       type: Boolean,
       required: true
     },
-    supplierId:{
+    supplierId:[{
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Suppliers'
-    },
+    }],
     msrp: {
         type: Number,
         required: true
