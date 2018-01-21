@@ -1,14 +1,6 @@
 const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({
-    productID: {
-        type: String,
-        required: true
-    },
-    vendorProductID: {
-        type: String,
-        required: true
-    },
     productName: {
         type: String,
         required: true
@@ -26,8 +18,8 @@ const productSchema = new mongoose.Schema({
       required:true
     },
     supplierId:{
-      type:String,
-      required:true
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Suppliers'
     },
     msrp: {
         type: Number,
@@ -39,7 +31,7 @@ const productSchema = new mongoose.Schema({
     },
     sizes:{
         type:Array,
-        required:true
+        default:null
     },
     availableColor: {
         type: Array
@@ -54,7 +46,8 @@ const productSchema = new mongoose.Schema({
     },
     unitsInStock:{
       type:Number,
-      required:true
+      required:true,
+      default:0
     },
     picture: {
         type: String,
