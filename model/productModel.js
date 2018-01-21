@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     availableSizes: {
-        type: String,
+        type:Array,
         default:null
     },
     sizes:{
