@@ -53,6 +53,8 @@ body{
   display: flex;
   overflow-y:auto;
   color: black;
+  float: left;
+    margin-left: 50px;
 }
 
 
@@ -65,11 +67,23 @@ table {
     color: black;
     border-radius: 6px;
     border-color: black;
-    -moz-box-shadow: 10px 10px 5px #888;
--webkit-box-shadow: 10px 10px 5px #888;
-    box-shadow: 10px 10px 5px #888;
+
     
 /*    box-shadow: 100px 20px 20px rgba(0,0,0,0.2);*/
+}
+
+.price-list{
+    width: 450px;
+  height: 220px;
+  margin: 80px auto;
+  background: #FFFFFF;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+  display: flex;
+  overflow-y:auto;
+  color: black;
+  float: right;
+    margin-right: 20px;
 }
 
 th {
