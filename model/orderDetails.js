@@ -29,12 +29,12 @@ const orderDetailsSchema = new mongoose.Schema({
         required: true
     },
     shipDate: {
-        type: String,
+        type: Date,
         required: true,
         default: null
     },
     billDate: {
-        type: String,
+        type: Date,
         required: true
     }
 });
