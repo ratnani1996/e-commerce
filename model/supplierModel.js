@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const {customerModel} = require('./customerModel')
+const bcrypt = require('bcryptjs')
 
 const addressSchema = new mongoose.Schema({
     Address_1 :{
@@ -60,6 +61,27 @@ const supplierSchema = new mongoose.Schema({
         ref : 'Orders'
     }]
 })
+
+//hash password
+supplierSchema.pre('save', function(next){
+    if(!this.isModified('password')){
+        return next();
+    }
+    else{
+        bcrypt.genSalt(10, function(err, salt){
+            bcrypt.hash(this.Password, salt, function(err, hash){
+                this.Password = hash;
+            })
+        })
+        return next();
+    }
+})
+
+//password matching
+supplierSchema.methods.ComparePassword = function ComparePassword(password){
+    return bcrypt.compareSync(password, this.Password)
+}
+
 
 var SupplierModel = mongoose.model('Suppliers', supplierSchema);
 
