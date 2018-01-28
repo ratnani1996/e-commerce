@@ -64,7 +64,7 @@ const supplierSchema = new mongoose.Schema({
 
 //hash password
 supplierSchema.pre('save', function(next){
-    if(!this.isModified('password')){
+    if(!this.isModified('Password')){
         return next();
     }
     else{
