@@ -37,7 +37,7 @@ const supplierSchema = new mongoose.Schema({
     LastName : {
         type : String
     },
-    Address_1 : addressSchema,
+    Address : addressSchema,
     Email : {
         type : String,
         required : true,
