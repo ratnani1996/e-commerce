@@ -56,10 +56,10 @@ const supplierSchema = new mongoose.Schema({
         minlength : 6
     },
     //reference to customers who have purchased or ordered from this supplier
-    customerID : {
+    customerID : [{
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Customer'
-    }
+    }]
 })
 
 //hash password
