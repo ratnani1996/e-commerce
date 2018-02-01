@@ -6,8 +6,9 @@ const ordersSchema = new mongoose.Schema({
         ref: 'Customers'
     },
     orderNumber: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'orderDetail'
+        type:Number,
+        required:true,
+        defualt:0
     },
     paymentID: {
         type: String,
