@@ -6,8 +6,7 @@ const app = express();
 var {connectToDatabase} = require('./config/database');
 connectToDatabase();
 
-
-
-
+//add public folder as express static
+app.use(express.static('./public'))
 
 app.listen(process.env.PORT, ()=>{console.log(`Listening to port ${process.env.PORT}`)})
