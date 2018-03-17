@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const {customerModel} = require('./customerModel')
+const bcrypt = require('bcryptjs')
 
 const addressSchema = new mongoose.Schema({
     Address_1 :{
@@ -36,7 +37,7 @@ const supplierSchema = new mongoose.Schema({
     LastName : {
         type : String
     },
-    Address_1 : addressSchema,
+    Address : addressSchema,
     Email : {
         type : String,
         required : true,
@@ -54,12 +55,37 @@ const supplierSchema = new mongoose.Schema({
         required : true,
         minlength : 6
     },
-    //not sure of this order id
-    orderID : [{
+    //reference to customers who have purchased or ordered from this supplier
+    customerID : [{
         type : mongoose.Schema.Types.ObjectId,
-        ref : 'Orders'
+        ref : 'Customer'
     }]
 })
+
+//hash password
+supplierSchema.pre('save', function(next){
+    var user = this;
+    if(!this.isModified('Password')){
+        return next();
+    }
+    else{
+        bcrypt.genSalt(10, (err, salt)=> {
+            if(err){
+                return next(err);
+            }
+            bcrypt.hash(this.Password, salt, function(err, hash) {
+                user.Password = hash;
+                return next();
+            });
+        });
+    }
+})
+
+//password matching
+supplierSchema.methods.ComparePassword = function ComparePassword(password){
+    return bcrypt.compareSync(password, this.Password)
+}
+
 
 var SupplierModel = mongoose.model('Suppliers', supplierSchema);
 

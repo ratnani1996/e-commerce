@@ -3,15 +3,10 @@ const express = require('express')
 const app = express();
 
 //connect to mongodatabase
-const mongoose = require('mongoose')
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGO_URL)
-mongoose.connection
-        .once('connected', ()=>{console.log(`Connection to the database up and running`)})
-        .on('error', (err)=>{console.log(err)})
+var {connectToDatabase} = require('./config/database');
+connectToDatabase();
 
-
-
-
+//add public folder as express static
+app.use(express.static('./public'))
 
 app.listen(process.env.PORT, ()=>{console.log(`Listening to port ${process.env.PORT}`)})
