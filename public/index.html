@@ -135,9 +135,9 @@ jQuery(document).ready(function() {
    
         </div>
       </div>
-     <nav id="main-nav"  ng-controller="menuController">
+     <nav id="main-nav" class="container"  ng-controller="menuController">
                
-           <ul class="nav navbar-nav">
+           <ul class="nav navbar-nav" style="margin-left: 12%; text-decoration: none;">
             
              <li class="dropdown" ng-repeat="submenu in menu"><a href="#">{{submenu.name}}</a>
                <div class="dropdown-content">
@@ -152,7 +152,7 @@ jQuery(document).ready(function() {
      
             
             
-            <div class="search-bar"><input type="search" class="inpt" placeholder ="I am looking for"><a href=""><button class="btn">
+            <div class="search-bar" style="margin-top: -1%;"><input type="search" class="inpt" placeholder ="I am looking for"><a href=""><button class="btn">
             	<span class="glyphicon glyphicon-search"></span>
             </button></a>
 				<a href=""><span class="cart">cart</span></a>
